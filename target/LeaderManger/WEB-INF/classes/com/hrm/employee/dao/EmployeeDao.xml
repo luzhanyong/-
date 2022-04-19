@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hrm.employee.dao.EmployeeDao">
+
+    <sql id="schoolleaderfield">
+        id,'name','position',sex,nation,nativeplc,birthday,worktime,theparty,postime,educationbg
+        ,'degree',graduateinst,title,comm
+    </sql>
+
+
+    <select id="selectAllSchoolLeader" resultType="schoolLeader">
+        select * from t_schoolleader
+    </select>
+
+    <select id="selectSchoolLeaderByName" resultType="schoolLeader">
+        select * from t_schoolleader where name like #{name}
+    </select>
+
+    <select id="selectSchoolLeaderById" resultType="schoolLeader">
+        select * from t_schoolleader where id = #{id}
+    </select>
+
+    <insert id="insertSchoolLeader">
+        insert into t_schoolleader(name,position,sex,nation,nativeplc,birthday,worktime,theparty,postime,educationbg,degree,graduateinst,title,comm) values (
+        #{name},#{position},#{sex},#{nation},#{nativeplc},#{birthday},#{worktime},#{theparty},#{postime},#{educationbg},#{degree},#{graduateinst},#{title},#{comm}
+        )
+    </insert>
+
+    <update id="updataSchoolLeaderById">
+            update t_schoolleader set name=#{name},position=#{position}
+                ,sex=#{sex},nation=#{nation},nativeplc=#{nativeplc}
+                ,birthday=#{birthday},worktime=#{worktime}
+                ,theparty=#{theparty},postime=#{postime},educationbg=#{educationbg}
+                ,degree=#{degree},graduateinst=#{graduateinst},title=#{title},comm=#{comm}
+                where id = #{id}
+    </update>
+
+    <delete id="deleteSchoolLeaderById">
+        delete from t_schoolleader where id = #{id}
+    </delete>
+
+
+<!--    处级-->
+
+    <select id="selectAllSchoolchuLeader" resultType="schoolChuLeader">
+        select * from t_schoolchuleader
+    </select>
+
+    <insert id="insertSchoolchuLeader">
+        insert into t_schoolchuleader(name,position,sex,nation,nativeplc,birthday,worktime,theparty,zctime,fctime,postime,q_educationbg,q_degree,q_graduateinst,z_educationbg,z_degree,z_graduateinst,title,comm) values (
+                                                                                                                                                                   #{name},#{position},#{sex},#{nation},#{nativeplc},#{birthday},#{worktime},#{theparty},#{zctime},#{fctime},#{postime},#{q_educationbg},#{q_degree},#{q_graduateinst},#{z_educationbg},#{z_degree},#{z_graduateinst},#{title},#{comm}                                                                                                                                                               )
+    </insert>
+
+    <select id="selectSchoolchuLeaderByName" resultType="schoolChuLeader">
+        select * from t_schoolchuleader where name like #{name}
+    </select>
+
+    <select id="selectSchoolchuLeaderById" resultType="schoolChuLeader">
+        select * from t_schoolchuleader where id = #{id}
+    </select>
+
+    <update id="updataSchoolchuLeaderById">
+        update t_schoolchuleader set name=#{name},position=#{position}
+                                ,sex=#{sex},nation=#{nation},nativeplc=#{nativeplc}
+                                ,birthday=#{birthday},worktime=#{worktime}
+                                ,theparty=#{theparty},zctime=#{zctime},fctime=#{fctime}
+                                ,postime=#{postime}
+                                ,q_educationbg=#{q_educationbg},q_degree=#{q_degree}
+                                ,q_graduateinst=#{q_graduateinst},q_graduateinst=#{q_graduateinst}
+                                ,z_educationbg=#{z_educationbg},z_degree=#{z_degree},z_graduateinst=#{z_graduateinst}
+                                ,title=#{title},comm=#{comm}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSchoolchuLeaderById">
+        delete from t_schoolchuleader where id = #{id}
+    </delete>
+
+
+<!--    科级-->
+
+    <select id="selectAllSchoolkeLeader" resultType="schoolKeLeader">
+        select * from t_schoolkeleader
+    </select>
+
+    <insert id="insertSchoolkeLeader">
+        insert into t_schoolkeleader(name,position,sex,nation,nativeplc,birthday,worktime,theparty,zktime,fktime,postime,q_educationbg,q_degree,q_graduateinst,z_educationbg,z_degree,z_graduateinst,title,comm) values (
+                                                                                                                                                                                                                                #{name},#{position},#{sex},#{nation},#{nativeplc},#{birthday},#{worktime},#{theparty},#{zktime},#{fktime},#{postime},#{q_educationbg},#{q_degree},#{q_graduateinst},#{z_educationbg},#{z_degree},#{z_graduateinst},#{title},#{comm}                                                                                                                                                               )
+    </insert>
+
+    <select id="selectSchoolkeLeaderByName" resultType="schoolKeLeader">
+        select * from t_schoolkeleader where name like #{name}
+    </select>
+
+    <select id="selectSchoolkeLeaderById" resultType="schoolKeLeader">
+        select * from t_schoolkeleader where id = #{id}
+    </select>
+
+    <update id="updataSchoolkeLeaderById">
+        update t_schoolkeleader set name=#{name},position=#{position}
+                                   ,sex=#{sex},nation=#{nation},nativeplc=#{nativeplc}
+                                   ,birthday=#{birthday},worktime=#{worktime}
+                                   ,theparty=#{theparty},zktime=#{zktime},fktime=#{fktime}
+                                   ,postime=#{postime}
+                                   ,q_educationbg=#{q_educationbg},q_degree=#{q_degree}
+                                   ,q_graduateinst=#{q_graduateinst},q_graduateinst=#{q_graduateinst}
+                                   ,z_educationbg=#{z_educationbg},z_degree=#{z_degree},z_graduateinst=#{z_graduateinst}
+                                   ,title=#{title},comm=#{comm}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSchoolkeLeaderById">
+        delete from t_schoolkeleader where id = #{id}
+    </delete>
+
+
+    <!--    导入excal-->
+    <insert id="insertSchoolLeaderByExcal">
+        insert into t_schoolleader(name,position,sex,nation,nativeplc,birthday,worktime,theparty,postime,educationbg,degree,graduateinst,title,comm) values
+        <foreach collection="schoolLeaders" item="schoolLeader" separator=",">
+            <if test='schoolLeader.name!=null and schoolLeader.name!=""'>
+                (#{schoolLeader.name},#{schoolLeader.position},#{schoolLeader.sex}
+                ,#{schoolLeader.nation},#{schoolLeader.nativeplc},#{schoolLeader.birthday}
+                ,#{schoolLeader.worktime},#{schoolLeader.theparty},#{schoolLeader.postime}
+                ,#{schoolLeader.educationbg},#{schoolLeader.degree},#{schoolLeader.graduateinst}
+                ,#{schoolLeader.title},#{schoolLeader.comm})
+            </if>
+        </foreach>
+    </insert>
+
+    <!-- 导入处级领导信息   -->
+    <insert id="insertSchoolchuLeaderByExcal">
+        insert into t_schoolchuleader(name,position,sex,nation,nativeplc,birthday,worktime,theparty
+        ,zctime,fctime,postime,q_educationbg,q_degree,q_graduateinst,z_educationbg,z_degree
+        ,z_graduateinst,title,comm) values
+        <foreach collection="schoolchuLeaders" item="schoolchuLeader" separator=",">
+            <if test='schoolchuLeader.name!=null and schoolchuLeader.name!=""'>
+                (#{schoolchuLeader.name},#{schoolchuLeader.position},#{schoolchuLeader.sex}
+                ,#{schoolchuLeader.nation},#{schoolchuLeader.nativeplc},#{schoolchuLeader.birthday}
+                ,#{schoolchuLeader.worktime},#{schoolchuLeader.theparty},#{schoolchuLeader.zctime}
+                ,#{schoolchuLeader.fctime}, #{schoolchuLeader.postime}, #{schoolchuLeader.q_educationbg}
+                , #{schoolchuLeader.q_degree}, #{schoolchuLeader.q_graduateinst}, #{schoolchuLeader.z_educationbg}
+                , #{schoolchuLeader.z_degree}, #{schoolchuLeader.z_graduateinst}
+                ,#{schoolchuLeader.title},#{schoolchuLeader.comm})
+            </if>
+        </foreach>
+    </insert>
+
+
+    <!-- 导入科级领导信息   -->
+    <insert id="insertSchoolkeLeaderByExcal">
+        insert into t_schoolkeleader(name,position,sex,nation,nativeplc,birthday,worktime,theparty,zktime
+        ,fktime,postime,q_educationbg,q_degree,q_graduateinst,z_educationbg,z_degree,z_graduateinst
+        ,title,comm) values
+        <foreach collection="schoolkeLeaders" item="schoolkeLeader" separator=",">
+            <if test='schoolkeLeader.name!=null and schoolkeLeader.name!=""'>
+                (#{schoolkeLeader.name},#{schoolkeLeader.position},#{schoolkeLeader.sex}
+                ,#{schoolkeLeader.nation},#{schoolkeLeader.nativeplc},#{schoolkeLeader.birthday}
+                ,#{schoolkeLeader.worktime},#{schoolkeLeader.theparty},#{schoolkeLeader.zktime}
+                ,#{schoolkeLeader.fktime} ,#{schoolkeLeader.postime}, #{schoolkeLeader.q_educationbg}
+                , #{schoolkeLeader.q_degree}, #{schoolkeLeader.q_graduateinst}, #{schoolkeLeader.z_educationbg}
+                , #{schoolkeLeader.z_degree}, #{schoolkeLeader.z_graduateinst}
+                ,#{schoolkeLeader.title},#{schoolkeLeader.comm})
+            </if>
+        </foreach>
+    </insert>
+
+</mapper>
